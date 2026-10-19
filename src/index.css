@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --pp-blush: #f7e8e0;
+    --pp-rose: #e8a5a0;
+    --pp-rose-deep: #c97b76;
+    --pp-sage: #cdd9c5;
+    --pp-cream: #fbf5f0;
+    --pp-ink: #4a4540;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #fbf5f0;
+    color: #4a4540;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: #f3d4cb;
+    color: #4a4540;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Fraunces', Georgia, serif;
+    font-optical-sizing: auto;
+  }
+
+  /* Soft pulsing heart used in the intro */
+  @keyframes pp-heart-pulse {
+    0%   { transform: scale(0.8); opacity: 0; }
+    20%  { transform: scale(1.05); opacity: 1; }
+    40%  { transform: scale(0.95); }
+    55%  { transform: scale(1); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  .pp-heart-pulse {
+    animation: pp-heart-pulse 1.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+
+  /* The glow ring that breathes behind the heart */
+  @keyframes pp-glow-breathe {
+    0%   { transform: scale(0.5); opacity: 0; }
+    40%  { opacity: 0.55; }
+    70%  { opacity: 0.35; }
+    100% { transform: scale(2.4); opacity: 0; }
+  }
+  .pp-glow-breathe {
+    animation: pp-glow-breathe 2.4s ease-out forwards;
+  }
+
+  /* Gentle fade + lift used by intro text */
+  @keyframes pp-fade-up {
+    0%   { transform: translateY(14px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+  .pp-fade-up {
+    animation: pp-fade-up 0.9s ease-out forwards;
+    animation-delay: var(--pp-delay, 0ms);
+    opacity: 0;
+  }
+
+  /* Whole intro wrapper fades out when finished */
+  @keyframes pp-intro-fade-out {
+    0%   { opacity: 1; visibility: visible; }
+    100% { opacity: 0; visibility: hidden; }
+  }
+  .pp-intro-fade-out {
+    animation: pp-intro-fade-out 0.9s ease-in forwards;
+  }
+
+  /* Landing page reveal — everything fades up gently */
+  @keyframes pp-reveal {
+    0%   { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+  .pp-reveal {
+    animation: pp-reveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: var(--pp-delay, 0ms);
+    opacity: 0;
+  }
+
+  /* Floating decorative blobs */
+  @keyframes pp-float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50%      { transform: translateY(-18px) rotate(3deg); }
+  }
+  .pp-float {
+    animation: pp-float 9s ease-in-out infinite;
+  }
+  .pp-float-slow {
+    animation: pp-float 13s ease-in-out infinite;
+  }
+
+  /* Soft breathing used on the persistent heart in the header */
+  @keyframes pp-breathe {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.08); }
+  }
+  .pp-breathe {
+    animation: pp-breathe 3.5s ease-in-out infinite;
+  }
+}
