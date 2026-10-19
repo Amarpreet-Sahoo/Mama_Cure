@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '@/firebase';
 import { useAuth } from '@/context/AuthContext';
-import { Heart, LogOut, Sparkles } from 'lucide-react';
+import { Heart, LogOut } from 'lucide-react';
 import LogoBadge from '@/components/LogoBadge';
 
 export default function Dashboard() {
@@ -49,10 +49,9 @@ export default function Dashboard() {
       {/* Centered greeting */}
       <main className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 text-center">
         <span
-          className="inline-flex items-center gap-2 rounded-full border border-[#e8a5a0]/40 bg-white/70 px-4 py-1.5 text-xs font-medium tracking-wide text-[#c97b76] backdrop-blur pp-reveal"
+          className="inline-flex items-center rounded-full border border-[#e8a5a0]/40 bg-white/70 px-4 py-1.5 text-xs font-medium tracking-wide text-[#c97b76] backdrop-blur pp-reveal"
           style={{ ['--pp-delay' as string]: '0ms' }}
         >
-          <Sparkles className="h-3.5 w-3.5" />
           Your care space
         </span>
 
