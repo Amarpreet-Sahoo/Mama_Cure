@@ -4,6 +4,7 @@ import Intro from '@/components/Intro';
 import Landing from '@/components/Landing';
 import AuthScreen from '@/components/AuthScreen';
 import Dashboard from '@/components/Dashboard';
+import Onboarding from '@/components/Onboarding';
 import ProtectedRoute from '@/components/ProtectedRoute';
 import { AuthProvider } from '@/context/AuthContext';
 
@@ -39,6 +40,14 @@ export default function App() {
             }
           />
           <Route path="/auth" element={<AuthScreen />} />
+          <Route
+            path="/onboarding"
+            element={
+              <ProtectedRoute>
+                <Onboarding />
+              </ProtectedRoute>
+            }
+          />
           <Route
             path="/dashboard"
             element={
